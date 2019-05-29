@@ -19,6 +19,16 @@ export const quiz = {
         D: "8 minuta"
       },
       correctAnswer: "D"
+    },
+    {
+      text: "Koliko treba svjetlosti da dođe sa Sunca do Zemlje?",
+      answers: {
+        A: "2 sata",
+        B: "3 dana",
+        C: "godinu dana",
+        D: "8 minuta"
+      },
+      correctAnswer: "D"
     }
   ]
 };

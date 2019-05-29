@@ -1,6 +1,12 @@
-import React, { useState } from "react";
-import { quiz } from "./api/data";
+import React, {
+  useState
+} from "react";
+import {
+  quiz
+} from "./api/data";
 import "./App.css";
+
+let rightWrong = undefined
 
 /**
  * This is our game state object with initial values
@@ -10,7 +16,8 @@ const gameState = {
   currentQuestionIndex: 0,
 
   /**The answer that the player gave to the current question */
-  playerAnswer: undefined
+  playerAnswer: undefined,
+
 };
 
 /**
@@ -32,12 +39,54 @@ export default function App() {
    * The parameter "playerAnswer" contains the selected answer ("A","B","C" or "D")
    */
   const handlePlayerAnswerSelected = playerAnswer => {
+
+    funkcija(playerAnswer)
+
     const newState = {
       currentQuestionIndex: state.currentQuestionIndex,
-      playerAnswer: playerAnswer
+      playerAnswer: playerAnswer,
+
     };
     setState(newState);
-  };
+
+
+
+  }
+
+  function funkcija(playerAnswer) {
+
+    if (playerAnswer === question.correctAnswer)
+      indeks()
+
+
+    else
+      rightWrong = "krivo"
+
+
+
+
+    console.log(rightWrong)
+  }
+
+  function indeks() {
+    rightWrong = "bravo"
+
+    const vrime = setTimeout(function () { }, 10); alert(rightWrong);
+    if (vrime > 20)
+      myFunction();
+
+  }
+
+  function myFunction() {
+
+    state.currentQuestionIndex = state.currentQuestionIndex + 1;
+
+
+  }
+
+
+
+
 
   /**The presentation (View). For now only the current question text and buttons for possible answers*/
   return (
@@ -45,18 +94,20 @@ export default function App() {
       <div>{question.text}</div>
       <div>
         <button onClick={() => handlePlayerAnswerSelected("A")}>
-          {question.answers.A}
+          {"A: " + question.answers.A}
         </button>
         <button onClick={() => handlePlayerAnswerSelected("B")}>
-          {question.answers.B}
+          {"B: " + question.answers.B}
         </button>
         <button onClick={() => handlePlayerAnswerSelected("C")}>
-          {question.answers.C}
+          {"C: " + question.answers.C}
         </button>
         <button onClick={() => handlePlayerAnswerSelected("D")}>
-          {question.answers.D}
+          {"D: " + question.answers.D}
         </button>
         <div>{question.answers[state.playerAnswer]}</div>
+        <div>{rightWrong}</div>
+
       </div>
     </div>
   );
