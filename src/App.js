@@ -1,13 +1,9 @@
-import React, {
-  useState
-} from "react";
-import {
-  quiz
-} from "./api/data";
+import React, { useState } from "react";
+import { quiz } from "./api/data";
 import "./App.css";
-import logo from './components/logo_manji.png';
+import logo from "./components/logo_manji.png";
 
-let rightWrong = undefined
+let rightWrong = undefined;
 
 /**
  * This is our game state object with initial values
@@ -17,8 +13,7 @@ const gameState = {
   currentQuestionIndex: 0,
 
   /**The answer that the player gave to the current question */
-  playerAnswer: undefined,
-
+  playerAnswer: undefined
 };
 
 /**
@@ -40,59 +35,37 @@ export default function App() {
    * The parameter "playerAnswer" contains the selected answer ("A","B","C" or "D")
    */
   const handlePlayerAnswerSelected = playerAnswer => {
-
-    funkcija(playerAnswer)
+    funkcija(playerAnswer);
 
     const newState = {
       currentQuestionIndex: state.currentQuestionIndex,
-      playerAnswer: playerAnswer,
-
+      playerAnswer: playerAnswer
     };
     setState(newState);
-
-
-
-  }
+  };
 
   function funkcija(playerAnswer) {
+    if (playerAnswer === question.correctAnswer) indeks();
+    else rightWrong = "krivo";
 
-    if (playerAnswer === question.correctAnswer)
-      indeks()
-
-
-    else
-      rightWrong = "krivo"
-
-
-
-
-    console.log(rightWrong)
+    console.log(rightWrong);
   }
 
   function indeks() {
-    rightWrong = "bravo"
+    rightWrong = "bravo";
 
-    const vrime = setTimeout(function () { }, 10); alert(rightWrong);
-    if (vrime > 20)
-      myFunction();
-
+    const vrime = setTimeout(function() {}, 10);
+    alert(rightWrong);
+    if (vrime > 20) myFunction();
   }
 
   function myFunction() {
-
     state.currentQuestionIndex = state.currentQuestionIndex + 1;
-
-
   }
-
-
-
-
 
   /**The presentation (View). For now only the current question text and buttons for possible answers*/
   return (
     <div className="App">
-
       <div className="Logo">
         <img src={logo} alt="Logo" />;
       </div>
@@ -114,9 +87,8 @@ export default function App() {
         </button>
       </div>
 
-      <div >{question.answers[state.playerAnswer]}</div>
+      <div>{question.answers[state.playerAnswer]}</div>
       <div>{rightWrong}</div>
-
     </div>
   );
 }
