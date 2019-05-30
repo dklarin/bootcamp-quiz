@@ -5,6 +5,7 @@ import {
   quiz
 } from "./api/data";
 import "./App.css";
+import logo from './components/logo_manji.png';
 
 let rightWrong = undefined
 
@@ -91,7 +92,13 @@ export default function App() {
   /**The presentation (View). For now only the current question text and buttons for possible answers*/
   return (
     <div className="App">
-      <div>{question.text}</div>
+
+      <div className="Logo">
+        <img src={logo} alt="Logo" />;
+      </div>
+
+      <div className="Pitanje">{question.text}</div>
+
       <div>
         <button onClick={() => handlePlayerAnswerSelected("A")}>
           {"A: " + question.answers.A}
@@ -105,10 +112,11 @@ export default function App() {
         <button onClick={() => handlePlayerAnswerSelected("D")}>
           {"D: " + question.answers.D}
         </button>
-        <div>{question.answers[state.playerAnswer]}</div>
-        <div>{rightWrong}</div>
-
       </div>
+
+      <div >{question.answers[state.playerAnswer]}</div>
+      <div>{rightWrong}</div>
+
     </div>
   );
 }
