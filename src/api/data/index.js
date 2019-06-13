@@ -21,14 +21,24 @@ export const quiz = {
       correctAnswer: "D"
     },
     {
-      text: "Koliko treba svjetlosti da dođe sa Sunca do Zemlje?",
+      text: "Koliko je 5x5?",
       answers: {
-        A: "2 sata",
-        B: "3 dana",
-        C: "godinu dana",
-        D: "8 minuta"
+        A: "100",
+        B: "25",
+        C: "55",
+        D: "5"
       },
-      correctAnswer: "D"
+      correctAnswer: "B"
+    },
+    {
+      text: "Koliko je 5x5?",
+      answers: {
+        A: "100",
+        B: "25",
+        C: "55",
+        D: "5"
+      },
+      correctAnswer: "B"
     }
   ]
 };
