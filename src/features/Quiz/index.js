@@ -95,14 +95,13 @@ function sameQuestion(sameNumber) {
 
   const PopupExample = () => (
     <div className="menu">
-    <Popup open={true} position="right center" >
+    <Popup open={true} position="right center" offsetX="800px" offsetY="1000px">
       
       {close => (
-        <div className="nekidiv">
-          <div>Da li je to vaš</div>
-          <div>konačan odgovor?</div>
+        <div className="modal">
+          <div>Da li je to vaš konačan odgovor?</div>
 
-
+        <div className="yesno">
           <a className="close" onClick={close}>
             
             <button className="odgovor"
@@ -113,7 +112,7 @@ function sameQuestion(sameNumber) {
             <button className="odgovor"
               onClick={() => secondChoice("NE")}>NE</button>
           </a>
-          
+          </div>
          
         
         </div>

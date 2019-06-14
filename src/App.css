@@ -138,8 +138,29 @@ button:hover {
 }
 
 .menu {
-  width: 200px;
+  width: 500px;
   display: flex;
   flex-direction: column;
   background: #ffffff;
+  
 }
+
+.modal {
+  
+  top: 50%;
+  font-size: 30px;
+  background-color: darkblue;
+  height: 200px;
+  width: 960px;
+  text-align: center;
+  color: blanchedalmond;
+}
+
+.yesno {
+  margin: 40px;
+  position: absolute;
+  top: 50px;
+  left: 300px;
+  
+}
+
