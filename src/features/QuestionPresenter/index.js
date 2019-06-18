@@ -18,9 +18,11 @@ export function QuestionPresenter(props) {
   const { answers } = question;
   const { playerAnswer } = props;
 
+  //App
+  //Pitanje
   return (
-    <div className="App">
-      <div className="Pitanje">{question.text}</div>
+    <div className="container">
+      <div className="box">{question.text}</div>
       <div>
         <button
           className={playerAnswer === "A" && props.className}
