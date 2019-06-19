@@ -18,8 +18,7 @@ export function QuestionPresenter(props) {
   const { answers } = question;
   const { playerAnswer } = props;
 
-  //App
-  //Pitanje
+
   return (
     <div className="container">
       <div className="box">{question.text}</div>

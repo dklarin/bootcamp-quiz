@@ -20,8 +20,9 @@ export function Welcome(props) {
   const { handleGameStart } = props;
 
   return (
-    <div>
-      <h1>Welcome</h1>
+    <div className="container">
+      <h1>Welcome to</h1>
+      <h1>Who Wants to Be a Millionaire?</h1>
       <button onClick={handleGameStart}>Start</button>
     </div>
   );

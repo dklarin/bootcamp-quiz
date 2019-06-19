@@ -31,14 +31,45 @@ export const quiz = {
       correctAnswer: "B"
     },
     {
-      text: "Koliko je 5x5?",
+      text: "U poznatoj uzrečici kiša pada kao iz:",
       answers: {
-        A: "100",
-        B: "25",
-        C: "55",
-        D: "5"
+        A: "kabla",
+        B: "vodovoda",
+        C: "vedra neba",
+        D: "oceana"
       },
-      correctAnswer: "B"
+      correctAnswer: "A"
+    },
+    {
+      text: "Koji broj u svom imenu krije dvokraki instrument za crtanje kružnice?",
+      answers: {
+        A: "2",
+        B: "3",
+        C: "5",
+        D: "6"
+      },
+      correctAnswer: "D"
+    },
+    {
+      text: "Glavni grad Benina je:",
+      answers: {
+        A: "Porto Novo",
+        B: "Porto Staro",
+        C: "Porto Visoko",
+        D: "Porto Nisko"
+      },
+      correctAnswer: "A"
+
+    },
+    {
+      text: "Koji broj u svom imenu krije dvokraki instrument za crtanje kružnice?",
+      answers: {
+        A: "2",
+        B: "3",
+        C: "5",
+        D: "6"
+      },
+      correctAnswer: "D"
     }
   ]
 };

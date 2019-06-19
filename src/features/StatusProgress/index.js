@@ -17,7 +17,7 @@ import { Changer } from "../../components/Changer";
  */
 export function StatusProgress(props) {
   return (
-    <div className="container">
+    <div className="Progress">
       <div className="progress">1.000.000 Kn</div>
       <div className="progress">500.000 Kn</div>
       <div className="progress">250.000 Kn</div>
