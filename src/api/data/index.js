@@ -70,6 +70,36 @@ export const quiz = {
         D: "6"
       },
       correctAnswer: "D"
+    },
+    {
+      text: "Koji narod ne govori germanskim jezikom?",
+      answers: {
+        A: "Danci",
+        B: "Šveđani",
+        C: "Islanđani",
+        D: "Finci"
+      },
+      correctAnswer: "D"
+    },
+    {
+      text: "Svojevrstan uvod u Američki rat za neovisnost bio je tzv. bostonska:",
+      answers: {
+        A: "čajanka",
+        B: "uspavanka",
+        C: "pijanka",
+        D: "kajdanka"
+      },
+      correctAnswer: "A"
+    },
+    {
+      text: "Koji svetac je zaštitnik Rusije?",
+      answers: {
+        A: "Sveti Jakov",
+        B: "Sveti Nikola",
+        C: "Sveti Ivan",
+        D: "Sveti Anton"
+      },
+      correctAnswer: "B"
     }
   ]
 };

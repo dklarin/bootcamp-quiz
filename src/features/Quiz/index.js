@@ -20,8 +20,6 @@ export function Quiz() {
    * and desturcture from the useState result array  */
   const [playerAnswer, setPlayerAnswer] = useState("");
 
-  const [igracevOdgovor, setIgracevOdgovor] = useState("");
-
   /**create a state variable for tracking the current question index and
    * destructure from the useState result array
    */
@@ -43,27 +41,35 @@ export function Quiz() {
 
   const [className, setClassName] = useState("");
   const [WelcomeScreen, setWelcomeScreen] = useState(false)
+  const [progressIndex, setProgressIndex] = useState(0);
 
   const rightAnswer = quiz.questions[questionIndex].correctAnswer;
 
-  const [openSesame, setOpenSesame] = useState(false);
-
   /** Moje */
   function checker(playerAnswer) {
-
     if (playerAnswer === rightAnswer) raiseIndex();
     else resetIndex();
-
   }
 
   /** Moje */
   function raiseIndex() {
-    let currentQuestionIndex = 0;
-    currentQuestionIndex = questionIndex + 1;
-    Changer(currentQuestionIndex);
-    setQuestionIndex(currentQuestionIndex);
+
+    const rand = randomNumber()
+
+    let currentProgressIndex = 0;
+    currentProgressIndex = progressIndex + 1;
+
+    Changer(currentProgressIndex);
+    setProgressIndex(currentProgressIndex);
+
+    setQuestionIndex(rand);
     setQuestionSelected(false);
     setClassName("");
+  }
+
+  function randomNumber() {
+    const rand = Math.floor((Math.random() * 9) + 1)
+    return rand
   }
 
   function resetIndex() {
@@ -75,18 +81,16 @@ export function Quiz() {
     setWelcomeScreen(true)
   }
 
+  function sameQuestion(sameNumber) {
+    setQuestionSelected(false)
+    setClassName("")
 
-function sameQuestion(sameNumber) {
-  setQuestionSelected(false)
-  setClassName("")
-   
-  setQuestionIndex(sameNumber);
-    
-}
+    setQuestionIndex(sameNumber);
+  }
 
 
   const secondChoice = odgovor => {
-    
+
     if (odgovor === "DA") checker(playerAnswer)
 
     else sameQuestion(questionIndex)
@@ -95,30 +99,30 @@ function sameQuestion(sameNumber) {
 
   const PopupExample = () => (
     <div className="menu">
-    <Popup open={true} position="right center" offsetX="800px" offsetY="1000px">
-      
-      {close => (
-        <div className="modal">
-          <div>Da li je to vaš konačan odgovor?</div>
+      <Popup open={true} position="right center" offsetX="800px" offsetY="1000px">
 
-        <div className="yesno">
-          <a className="close" onClick={close}>
-            
-            <button className="odgovor"
-            onClick={() => secondChoice("DA")}>DA</button>
-          </a>
+        {close => (
+          <div className="modal">
+            <div>Da li je to vaš konačan odgovor?</div>
 
-          <a className="close" onClick={close}>
-            <button className="odgovor"
-              onClick={() => secondChoice("NE")}>NE</button>
-          </a>
+            <div className="yesno">
+              <a className="close" onClick={close}>
+
+                <button className="odgovor"
+                  onClick={() => secondChoice("DA")}>DA</button>
+              </a>
+
+              <a className="close" onClick={close}>
+                <button className="odgovor"
+                  onClick={() => secondChoice("NE")}>NE</button>
+              </a>
+            </div>
+
+
           </div>
-         
-        
-        </div>
-      )}
+        )}
 
-    </Popup>
+      </Popup>
     </div>
   )
 
