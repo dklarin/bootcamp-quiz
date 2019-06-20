@@ -45,10 +45,8 @@ export function Quiz() {
 
   const rightAnswer = quiz.questions[questionIndex].correctAnswer;
 
-  /** Moje */
-  function checker(playerAnswer) {
-    if (playerAnswer === rightAnswer) raiseIndex();
-    else resetIndex();
+  const checkAnswer = playerAnswer => {
+    playerAnswer === rightAnswer ? raiseIndex() : resetIndex()
   }
 
   /** Moje */
@@ -61,9 +59,8 @@ export function Quiz() {
 
     Changer(currentProgressIndex)
 
-    if (Changer(currentProgressIndex) === 0) winner()
-
-
+    if (Changer(currentProgressIndex) === 0)
+      winner()
 
     setProgressIndex(currentProgressIndex);
 
@@ -101,11 +98,14 @@ export function Quiz() {
 
   const secondChoice = odgovor => {
 
-    if (odgovor === "DA") checker(playerAnswer)
+    if (odgovor === "DA")
+      checkAnswer(playerAnswer)
 
     else sameQuestion(questionIndex)
 
-  };
+  }
+
+
 
   const PopupExample = () => (
     <div className="menu">
