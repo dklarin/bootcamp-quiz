@@ -61,7 +61,7 @@ export function Quiz() {
 
     Changer(currentProgressIndex)
 
-    if (Changer(currentProgressIndex) === 1) winner()
+    if (Changer(currentProgressIndex) === 0) winner()
 
 
 
