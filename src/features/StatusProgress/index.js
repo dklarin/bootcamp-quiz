@@ -16,8 +16,35 @@ import { Changer } from "../../components/Changer";
  * should be passed as function argument
  */
 export function StatusProgress(props) {
+
+  // Not using, for now
+  const levels = [
+    {
+      text: "100 Kn",
+      amount: 100,
+      isMilestone: true
+    },
+    {
+      text: "200 Kn",
+      amount: 200,
+      isMilestone: true
+    }
+  ];
+
+
   return (
     <div className="Progress">
+
+
+      {/*NOT USED {levels.reverse().map(level => (
+        <div key={level.amount} div className={getClassName(level.amount)}>
+          {level.text}
+        </div>
+      ))}*/}
+
+
+
+
       <div className="progress">1.000.000 Kn</div>
       <div className="progress">500.000 Kn</div>
       <div className="progress">250.000 Kn</div>
