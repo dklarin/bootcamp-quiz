@@ -59,7 +59,12 @@ export function Quiz() {
     let currentProgressIndex = 0;
     currentProgressIndex = progressIndex + 1;
 
-    Changer(currentProgressIndex);
+    Changer(currentProgressIndex)
+
+    if (Changer(currentProgressIndex) === 1) winner()
+
+
+
     setProgressIndex(currentProgressIndex);
 
     setQuestionIndex(rand);
@@ -70,6 +75,11 @@ export function Quiz() {
   function randomNumber() {
     const rand = Math.floor((Math.random() * 9) + 1)
     return rand
+  }
+
+  function winner() {
+    alert("Bravo, osvojili ste milijun virtualnih kuna!")
+    setWelcomeScreen(true)
   }
 
   function resetIndex() {
