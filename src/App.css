@@ -5,13 +5,13 @@
 .box {
   text-align: center;
   vertical-align: middle;
-  line-height: 100px;
-  display: inline-block;
+  line-height: 50px;
+  /*display: inline-block;*/
   
   width: calc(190vw / 4);
-  height: calc(25vw / 4);
+  height: calc(32vw / 4);
   
-  padding: 5px;
+  padding: 15px;
   background-color: darkblue;
   color: blanchedalmond;
   margin: auto;
@@ -43,21 +43,6 @@
   font-size: calc(6vw / 4);
 }
 
-
-
-
-
-
-/*Stopped here*/
-.Logo {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-
-
-
 button {
   width: calc(140vw / 4);
   height: calc(18vw / 4);
@@ -70,18 +55,9 @@ button {
   border: 5px solid orange;
 }
 
-
-
 button:hover {
   background-color: orange;
   cursor: pointer;
-}
-
-.result {
-  font-size: 30px;
-  font-weight: 400;
-  display: grid;
-  place-content: center;
 }
 
 .button-answer-selected {
@@ -97,6 +73,7 @@ button:hover {
   padding: 20px;
   font-size: 30px;
 }
+
 .prva {
   position: absolute;
   left: -100px;
@@ -108,27 +85,16 @@ button:hover {
   right: 0px;
 }
 
-
-
 .odgovor {
   width: 100px;
 }
 
-.menu {
-  width: 500px;
-  display: flex;
-  flex-direction: column;
-  background: #ffffff;
-  
-}
-
 .modal {
-  
   top: 50%;
-  font-size: 30px;
+  font-size: calc(9vw / 4);
   background-color: darkblue;
-  height: 200px;
-  width: 960px;
+  width: calc(200vw / 4);
+  height: calc(50vw / 4);
   text-align: center;
   color: blanchedalmond;
 }
@@ -136,6 +102,7 @@ button:hover {
 .yesno {
   margin: 40px;
   top: 50px;
+  font-size: calc(9vw / 4);
   left: 300px;
 }
 

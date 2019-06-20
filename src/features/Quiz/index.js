@@ -41,7 +41,7 @@ export function Quiz() {
 
   const [className, setClassName] = useState("");
   const [WelcomeScreen, setWelcomeScreen] = useState(false)
-  const [progressIndex, setProgressIndex] = useState(0);
+  const [progressIndex, setProgressIndex] = useState(1);
 
   const rightAnswer = quiz.questions[questionIndex].correctAnswer;
 
@@ -49,24 +49,18 @@ export function Quiz() {
     playerAnswer === rightAnswer ? raiseIndex() : resetIndex()
   }
 
-  /** Moje */
   function raiseIndex() {
 
     const rand = randomNumber()
 
-    let currentProgressIndex = 0;
-    currentProgressIndex = progressIndex + 1;
-
-    Changer(currentProgressIndex)
-
-    if (Changer(currentProgressIndex) === 0)
-      winner()
-
-    setProgressIndex(currentProgressIndex);
-
+    setProgressIndex(progressIndex + 1)
     setQuestionIndex(rand);
+
     setQuestionSelected(false);
     setClassName("");
+
+    if (Changer(progressIndex) === 0)
+      winner()
   }
 
   function randomNumber() {
@@ -76,15 +70,16 @@ export function Quiz() {
 
   function winner() {
     alert("Bravo, osvojili ste milijun virtualnih kuna!")
-    setWelcomeScreen(true)
+    resetIndex()
   }
 
   function resetIndex() {
     setQuestionSelected(false);
     setClassName("");
-    let currentQuestionIndex = 0;
-    setQuestionIndex(currentQuestionIndex);
-    Changer(currentQuestionIndex);
+
+    setQuestionIndex(0);
+    Changer(0);
+    setProgressIndex(1)
     setWelcomeScreen(true)
   }
 
@@ -163,3 +158,4 @@ export function Quiz() {
       </div>
     );
 }
+
