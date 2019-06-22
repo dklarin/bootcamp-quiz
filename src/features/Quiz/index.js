@@ -80,7 +80,6 @@ export function Quiz() {
     setQuestionIndex(0);
     Changer(0);
     setProgressIndex(1)
-    setWelcomeScreen(true)
   }
 
   function sameQuestion(sameNumber) {
