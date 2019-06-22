@@ -1,5 +1,4 @@
 import React from "react";
-import { statement } from "@babel/template";
 
 /***
  * @description

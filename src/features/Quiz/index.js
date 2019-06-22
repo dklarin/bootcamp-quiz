@@ -6,7 +6,6 @@ import { Changer } from "../../components/Changer";
 import { Welcome } from "../../features/welcome";
 import Popup from 'reactjs-popup'
 
-
 /***
  * @description
  * This is our root quiz component. Here we mange the game state (current question, selected answer...)
@@ -15,6 +14,7 @@ import Popup from 'reactjs-popup'
 export function Quiz() {
 
   const [isQuestionSelected, setQuestionSelected] = useState(false);
+  const [isEnd, setEnd] = useState(false);
 
   /**create a state variable for tracking the selected answer
    * and desturcture from the useState result array  */
@@ -32,12 +32,10 @@ export function Quiz() {
 
   /**This is the function that should be called when the player select the answer */
   const onAnswerSelected = answer => {
-
     setClassName("button-answer-selected");
     setQuestionSelected(true);
     setPlayerAnswer(answer);
-
-  };
+  }
 
   const [className, setClassName] = useState("");
   const [WelcomeScreen, setWelcomeScreen] = useState(false)
@@ -51,10 +49,10 @@ export function Quiz() {
 
   function raiseIndex() {
 
-    const rand = randomNumber()
+    const random = randomNumber()
 
     setProgressIndex(progressIndex + 1)
-    setQuestionIndex(rand);
+    setQuestionIndex(random);
 
     setQuestionSelected(false);
     setClassName("");
@@ -63,45 +61,42 @@ export function Quiz() {
       winner()
   }
 
+
   function randomNumber() {
-    const rand = Math.floor((Math.random() * 9) + 1)
+    const rand = Math.floor((Math.random() * 15) + 1)
+
+    console.log("Slučajni broj = " + rand)
     return rand
   }
 
   function winner() {
-    alert("Bravo, osvojili ste milijun virtualnih kuna!")
-    resetIndex()
+    setEnd(true)
+    PopupWinner()
   }
 
   function resetIndex() {
     setQuestionSelected(false);
     setClassName("");
+    setEnd(false)
+    setWelcomeScreen(true)
 
     setQuestionIndex(0);
     Changer(0);
     setProgressIndex(1)
   }
 
-  function sameQuestion(sameNumber) {
+
+  const sameQuestion = sameNumber => {
     setQuestionSelected(false)
     setClassName("")
-
     setQuestionIndex(sameNumber);
   }
 
-
-  const secondChoice = odgovor => {
-
-    if (odgovor === "DA")
-      checkAnswer(playerAnswer)
-
-    else sameQuestion(questionIndex)
-
+  const secondChoice = answer => {
+    answer === "DA" ? checkAnswer(playerAnswer) : sameQuestion(questionIndex)
   }
 
-
-
-  const PopupExample = () => (
+  const PopupYesno = () => (
     <div className="menu">
       <Popup open={true} position="right center" offsetX="800px" offsetY="1000px">
 
@@ -130,6 +125,27 @@ export function Quiz() {
     </div>
   )
 
+  const PopupWinner = () => (
+    <div className="menu">
+      <Popup open={true} position="right center" offsetX="800px" offsetY="1000px">
+
+        {close => (
+          <div className="modal">
+            <div>Bravo, osvojili ste milijun virtualnih kuna!</div>
+
+            <div className="yesno">
+              <a className="close" onClick={close}>
+
+                <button className="odgovor"
+                  onClick={() => resetIndex()}>U redu!</button>
+              </a>
+            </div>
+          </div>
+        )
+        }
+      </Popup>
+    </div>
+  )
 
   return WelcomeScreen ? (
 
@@ -140,7 +156,8 @@ export function Quiz() {
       <div className="row">
 
         <div className="prva">
-          {isQuestionSelected ? (PopupExample()) : (null)}
+          {isQuestionSelected ? PopupYesno() : null}
+          {isEnd ? PopupWinner() : null}
           <QuestionPresenter
 
             className={className}
@@ -151,6 +168,7 @@ export function Quiz() {
         </div>
 
         <div className="druga">
+
           <StatusProgress />
         </div>
 

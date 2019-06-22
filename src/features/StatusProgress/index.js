@@ -1,5 +1,4 @@
 import React from "react";
-import { statement } from "@babel/template";
 import logo from "../../components/logo.png";
 
 /***

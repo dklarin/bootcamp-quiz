@@ -86,7 +86,7 @@ button:hover {
 }
 
 .odgovor {
-  width: 100px;
+  width: calc(38vw / 4);
 }
 
 .modal {
