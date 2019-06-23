@@ -85,7 +85,6 @@ export function Quiz() {
     setProgressIndex(1)
   }
 
-
   const sameQuestion = sameNumber => {
     setQuestionSelected(false)
     setClassName("")
@@ -175,4 +174,3 @@ export function Quiz() {
       </div>
     );
 }
-
