@@ -29,7 +29,8 @@ export default function App() {
 
   return isGameInProgress ? (
     <Quiz />
+
   ) : (
-    <Welcome handleGameStart={() => setGameInProgress(true)} />
-  );
+      <Welcome handleGameStart={() => setGameInProgress(true)} />
+    );
 }

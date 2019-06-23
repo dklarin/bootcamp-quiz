@@ -1,7 +1,7 @@
 export const quiz = {
   questions: [
     {
-      //#1
+      //#0
       text: "Koji je glavni grad Francuske?",
       answers: {
         A: "Madrid",
@@ -12,7 +12,7 @@ export const quiz = {
       correctAnswer: "C"
     },
     {
-      //#2
+      //#1
       text: "Koliko treba svjetlosti da dođe sa Sunca do Zemlje?",
       answers: {
         A: "2 sata",
@@ -23,7 +23,7 @@ export const quiz = {
       correctAnswer: "D"
     },
     {
-      //#3
+      //#2
       text: "Koliko je 5x5?",
       answers: {
         A: "100",
@@ -34,7 +34,7 @@ export const quiz = {
       correctAnswer: "B"
     },
     {
-      //#4
+      //#3
       text: "U poznatoj uzrečici kiša pada kao iz:",
       answers: {
         A: "kabla",
@@ -45,7 +45,7 @@ export const quiz = {
       correctAnswer: "A"
     },
     {
-      //#5
+      //#4
       text: "Koji broj u svom imenu krije dvokraki instrument za crtanje kružnice?",
       answers: {
         A: "2",
@@ -56,7 +56,7 @@ export const quiz = {
       correctAnswer: "D"
     },
     {
-      //#6
+      //#5
       text: "Glavni grad Benina je:",
       answers: {
         A: "Porto Novo",
@@ -68,18 +68,7 @@ export const quiz = {
 
     },
     {
-      //#7
-      text: "Koji broj u svom imenu krije dvokraki instrument za crtanje kružnice?",
-      answers: {
-        A: "2",
-        B: "3",
-        C: "5",
-        D: "6"
-      },
-      correctAnswer: "D"
-    },
-    {
-      //#8
+      //#6
       text: "Koji narod ne govori germanskim jezikom?",
       answers: {
         A: "Danci",
@@ -90,7 +79,7 @@ export const quiz = {
       correctAnswer: "D"
     },
     {
-      //#9
+      //#7
       text: "Svojevrstan uvod u Američki rat za neovisnost bio je tzv. bostonska:",
       answers: {
         A: "čajanka",
@@ -101,7 +90,7 @@ export const quiz = {
       correctAnswer: "A"
     },
     {
-      //#10
+      //#8
       text: "Koji svetac je zaštitnik Rusije?",
       answers: {
         A: "Sveti Jakov",
@@ -112,7 +101,7 @@ export const quiz = {
       correctAnswer: "B"
     },
     {
-      //#11
+      //#9
       text: "Koji biser Jadrana nije nacionalni park?",
       answers: {
         A: "Brijuni",
@@ -123,7 +112,7 @@ export const quiz = {
       correctAnswer: "B"
     },
     {
-      //#12
+      //#10
       text: "Koji je auto 1991. u Osijeku stradao pod gusjenicama tenka?",
       answers: {
         A: "peglica",
@@ -134,7 +123,7 @@ export const quiz = {
       correctAnswer: "B"
     },
     {
-      //#13
+      //#11
       text: "Novac na bankomatu nećete moći podignuti ako ste zaboravili...",
       answers: {
         A: "pen",
@@ -145,7 +134,7 @@ export const quiz = {
       correctAnswer: "C"
     },
     {
-      //#14
+      //#12
       text: "Na kojem se poluotoku nalazi Švedska?",
       answers: {
         A: "Skandinavskom",
@@ -156,7 +145,7 @@ export const quiz = {
       correctAnswer: "A"
     },
     {
-      //#15
+      //#13
       text: "Kako se naziva prednji dio broda?",
       answers: {
         A: "pramac",
@@ -167,7 +156,7 @@ export const quiz = {
       correctAnswer: "A"
     },
     {
-      //#16
+      //#14
       text: "Koliko žena ima monogamist?",
       answers: {
         A: "2",
@@ -176,6 +165,17 @@ export const quiz = {
         D: "5"
       },
       correctAnswer: "C"
+    },
+    {
+      //#15
+      text: "Kako zovemo hladno sunčano vrijeme praćeno mrazom?",
+      answers: {
+        A: "ledeno sunce",
+        B: "krezubo sunce",
+        C: "šiljato sunce",
+        D: "zubato sunce"
+      },
+      correctAnswer: "D"
     }
   ]
 };

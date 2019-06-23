@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { quiz } from "../../api/data";
 import { QuestionPresenter } from "../QuestionPresenter";
 import { StatusProgress } from "../StatusProgress";
 import { Changer } from "../../components/Changer";
 import { Welcome } from "../../features/welcome";
 import Popup from 'reactjs-popup'
+import { Random } from "../../components/Random"
 
 /***
  * @description
@@ -13,22 +14,51 @@ import Popup from 'reactjs-popup'
  */
 export function Quiz() {
 
+
+
   const [isQuestionSelected, setQuestionSelected] = useState(false);
   const [isEnd, setEnd] = useState(false);
+  const [renderer, setRenderer] = useState(false);
 
   /**create a state variable for tracking the selected answer
    * and desturcture from the useState result array  */
   const [playerAnswer, setPlayerAnswer] = useState("");
 
+  let arr = []
+
+  for (var a = [], i = 0; i < 15; ++i) a[i] = i;
+  shuffle(a);
+  console.log(arr.length)
+
+  function shuffle(array) {
+    var tmp, current, top = array.length;
+    if (top) while (--top) {
+      current = Math.floor(Math.random() * (top + 1));
+      tmp = array[current];
+      array[current] = array[top];
+      array[top] = tmp;
+    }
+
+    randomArr(array)
+  }
+
+  function randomArr(array) {
+    arr = array.slice();
+  }
+
   /**create a state variable for tracking the current question index and
    * destructure from the useState result array
    */
   const [questionIndex, setQuestionIndex] = useState(0);
+  //console.log("questionIndex: " + questionIndex)
+
 
   /***
    * take the current question from the quiz object
    */
   const currentQuestion = quiz.questions[questionIndex];
+
+
 
   /**This is the function that should be called when the player select the answer */
   const onAnswerSelected = answer => {
@@ -41,6 +71,11 @@ export function Quiz() {
   const [WelcomeScreen, setWelcomeScreen] = useState(false)
   const [progressIndex, setProgressIndex] = useState(1);
 
+
+
+
+
+
   const rightAnswer = quiz.questions[questionIndex].correctAnswer;
 
   const checkAnswer = playerAnswer => {
@@ -49,24 +84,20 @@ export function Quiz() {
 
   function raiseIndex() {
 
-    const random = randomNumber()
+
+
+
 
     setProgressIndex(progressIndex + 1)
-    setQuestionIndex(random);
+    console.log("progressIndex: " + progressIndex)
+    setQuestionIndex(arr[progressIndex - 1]);
+
 
     setQuestionSelected(false);
     setClassName("");
 
     if (Changer(progressIndex) === 0)
       winner()
-  }
-
-
-  function randomNumber() {
-    const rand = Math.floor((Math.random() * 15) + 1)
-
-    console.log("Slučajni broj = " + rand)
-    return rand
   }
 
   function winner() {
@@ -80,9 +111,21 @@ export function Quiz() {
     setEnd(false)
     setWelcomeScreen(true)
 
+
+
     setQuestionIndex(0);
     Changer(0);
     setProgressIndex(1)
+
+
+
+
+
+
+
+
+
+
   }
 
   const sameQuestion = sameNumber => {
@@ -116,7 +159,6 @@ export function Quiz() {
               </a>
             </div>
 
-
           </div>
         )}
 
@@ -146,21 +188,28 @@ export function Quiz() {
     </div>
   )
 
+
+
   return WelcomeScreen ? (
+    <div>
 
-    <Welcome handleGameStart={() => setWelcomeScreen(false)} />
 
+      <Welcome handleGameStart={() => setWelcomeScreen(false)} />
+
+    </div>
   ) : (
 
       <div className="row">
 
         <div className="prva">
+
           {isQuestionSelected ? PopupYesno() : null}
           {isEnd ? PopupWinner() : null}
           <QuestionPresenter
 
             className={className}
             question={currentQuestion}
+
             onAnswerSelected={onAnswerSelected}
             playerAnswer={playerAnswer}
           />
