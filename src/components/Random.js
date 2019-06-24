@@ -18,8 +18,4 @@ export function Random() {
         return array
     }
 
-    function randomArr(array) {
-        arr = array.slice();
-        console.log("Niz: " + arr)
-    }
 }
