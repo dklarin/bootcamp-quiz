@@ -18,46 +18,40 @@ export function Quiz() {
 
   const [isQuestionSelected, setQuestionSelected] = useState(false);
   const [isEnd, setEnd] = useState(false);
-  const [renderer, setRenderer] = useState(false);
+
 
   /**create a state variable for tracking the selected answer
    * and desturcture from the useState result array  */
   const [playerAnswer, setPlayerAnswer] = useState("");
 
-  let arr = []
-
-  for (var a = [], i = 0; i < 15; ++i) a[i] = i;
-  shuffle(a);
-  console.log(arr.length)
-
-  function shuffle(array) {
-    var tmp, current, top = array.length;
-    if (top) while (--top) {
-      current = Math.floor(Math.random() * (top + 1));
-      tmp = array[current];
-      array[current] = array[top];
-      array[top] = tmp;
-    }
-
-    randomArr(array)
-  }
-
-  function randomArr(array) {
-    arr = array.slice();
-  }
-
+  console.log("Prije questionIndex")
   /**create a state variable for tracking the current question index and
    * destructure from the useState result array
    */
   const [questionIndex, setQuestionIndex] = useState(0);
-  //console.log("questionIndex: " + questionIndex)
+  console.log("Poslije questionIndex")
 
+  const [arr, setArr] = useState([]);
+
+  var setArrb = []
+  if (arr.length === 0) {
+    generator()
+  }
+
+
+
+  function generator() {
+    setArrb = Random()
+    console.log("setArrb: " + setArrb)
+    setArr(setArrb)
+  }
+
+  console.log("Provjera niza: " + arr)
 
   /***
    * take the current question from the quiz object
    */
   const currentQuestion = quiz.questions[questionIndex];
-
 
 
   /**This is the function that should be called when the player select the answer */
@@ -71,27 +65,19 @@ export function Quiz() {
   const [WelcomeScreen, setWelcomeScreen] = useState(false)
   const [progressIndex, setProgressIndex] = useState(1);
 
-
-
-
-
-
   const rightAnswer = quiz.questions[questionIndex].correctAnswer;
+
 
   const checkAnswer = playerAnswer => {
     playerAnswer === rightAnswer ? raiseIndex() : resetIndex()
   }
 
+
   function raiseIndex() {
-
-
-
-
 
     setProgressIndex(progressIndex + 1)
     console.log("progressIndex: " + progressIndex)
     setQuestionIndex(arr[progressIndex - 1]);
-
 
     setQuestionSelected(false);
     setClassName("");
@@ -100,10 +86,12 @@ export function Quiz() {
       winner()
   }
 
+
   function winner() {
     setEnd(true)
     PopupWinner()
   }
+
 
   function resetIndex() {
     setQuestionSelected(false);
@@ -111,22 +99,14 @@ export function Quiz() {
     setEnd(false)
     setWelcomeScreen(true)
 
-
+    generator()
 
     setQuestionIndex(0);
     Changer(0);
     setProgressIndex(1)
 
-
-
-
-
-
-
-
-
-
   }
+
 
   const sameQuestion = sameNumber => {
     setQuestionSelected(false)
@@ -134,9 +114,11 @@ export function Quiz() {
     setQuestionIndex(sameNumber);
   }
 
+
   const secondChoice = answer => {
     answer === "DA" ? checkAnswer(playerAnswer) : sameQuestion(questionIndex)
   }
+
 
   const PopupYesno = () => (
     <div className="menu">
@@ -166,6 +148,7 @@ export function Quiz() {
     </div>
   )
 
+
   const PopupWinner = () => (
     <div className="menu">
       <Popup open={true} position="right center" offsetX="800px" offsetY="1000px">
@@ -187,6 +170,7 @@ export function Quiz() {
       </Popup>
     </div>
   )
+
 
 
 
