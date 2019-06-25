@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import { Welcome } from "./features/welcome";
 import { Quiz } from "./features/Quiz";
-import { generate } from "fast-glob/out/managers/tasks";
-
+import { Random } from "../src/components/Random"
 
 /**
  * @abstract
@@ -22,6 +21,13 @@ export default function App() {
    * */
   const [isGameInProgress, setGameInProgress] = useState(false);
 
+  var setArrb = []
+
+  function rand() {
+    setArrb = Random()
+    return setArrb
+  }
+
   /**
    * conditional rendering example
    * if the isGameInProgress is true  we return the Quiz component.
@@ -29,8 +35,7 @@ export default function App() {
    */
 
   return isGameInProgress ? (
-    <Quiz />
-
+    <Quiz danijel={rand()} />
   ) : (
       <Welcome handleGameStart={() => setGameInProgress(true)} />
     );

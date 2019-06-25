@@ -1,6 +1,6 @@
 export function Random() {
 
-    for (var array = [], i = 0; i < 15; ++i) array[i] = i;
+    for (var array = [], i = 0; i < 17; ++i) array[i] = i;
 
     var tmp, current, top = array.length;
     if (top) while (--top) {

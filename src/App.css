@@ -85,6 +85,23 @@ button:hover {
   right: 0px;
 }
 
+.Logo {
+  position: absolute;
+  
+  background-color: blue;
+  width: calc(100vw / 4);
+  height: calc(100vw / 4);
+}
+
+
+
+
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
 .odgovor {
   width: calc(38vw / 4);
 }

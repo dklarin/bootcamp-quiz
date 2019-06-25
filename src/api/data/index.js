@@ -176,6 +176,17 @@ export const quiz = {
         D: "zubato sunce"
       },
       correctAnswer: "D"
+    },
+    {
+      //#16
+      text: "Tko se izvrgava opasnosti za drugoga, taj vadi kestene iz...",
+      answers: {
+        A: "vatre",
+        B: "šume",
+        C: "vode",
+        D: "nabujale rijeke"
+      },
+      correctAnswer: "A"
     }
   ]
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { quiz } from "../../api/data";
 import { QuestionPresenter } from "../QuestionPresenter";
 import { StatusProgress } from "../StatusProgress";
@@ -12,46 +12,55 @@ import { Random } from "../../components/Random"
  * This is our root quiz component. Here we mange the game state (current question, selected answer...)
  * Quiz component should be visible when the game was started by the player.
  */
-export function Quiz() {
+export function Quiz(props) {
 
-
-
-  const [isQuestionSelected, setQuestionSelected] = useState(false);
-  const [isEnd, setEnd] = useState(false);
-
+  var { danijel } = props
+  console.log("Početni niz: " + danijel)
 
   /**create a state variable for tracking the selected answer
-   * and desturcture from the useState result array  */
+  * and desturcture from the useState result array  */
   const [playerAnswer, setPlayerAnswer] = useState("");
 
-  console.log("Prije questionIndex")
-  /**create a state variable for tracking the current question index and
-   * destructure from the useState result array
-   */
-  const [questionIndex, setQuestionIndex] = useState(0);
-  console.log("Poslije questionIndex")
-
-  const [arr, setArr] = useState([]);
-
-  var setArrb = []
-  if (arr.length === 0) {
-    generator()
-  }
 
 
+  const [isGeneratorSelected, setGeneratorSelected] = useState(false);
 
-  function generator() {
-    setArrb = Random()
-    console.log("setArrb: " + setArrb)
-    setArr(setArrb)
-  }
+  var [arr, setArr] = useState(danijel);
+  console.log("arr: " + arr)
 
-  console.log("Provjera niza: " + arr)
 
   /***
    * take the current question from the quiz object
    */
+  const [questionIndex, setQuestionIndex] = useState(arr[0]);
+
+  /**create a state variable for tracking the current question index and
+     * destructure from the useState result array
+     */
+
   const currentQuestion = quiz.questions[questionIndex];
+
+  const [isQuestionSelected, setQuestionSelected] = useState(false);
+  const [isEnd, setEnd] = useState(false);
+
+  const [className, setClassName] = useState("");
+  const [WelcomeScreen, setWelcomeScreen] = useState(false)
+  const [progressIndex, setProgressIndex] = useState(1);
+
+  var filtered = []
+  var setArrb = []
+  const newArray = () => {
+    setArrb = Random()
+
+    filtered = setArrb.filter(function (value, index, arr) {
+      return value !== arr[0];
+
+    });
+    setArr(filtered)
+
+    setGeneratorSelected(false)
+
+  }
 
 
   /**This is the function that should be called when the player select the answer */
@@ -61,29 +70,24 @@ export function Quiz() {
     setPlayerAnswer(answer);
   }
 
-  const [className, setClassName] = useState("");
-  const [WelcomeScreen, setWelcomeScreen] = useState(false)
-  const [progressIndex, setProgressIndex] = useState(1);
-
-  const rightAnswer = quiz.questions[questionIndex].correctAnswer;
-
 
   const checkAnswer = playerAnswer => {
-    playerAnswer === rightAnswer ? raiseIndex() : resetIndex()
+    playerAnswer === currentQuestion.correctAnswer ? raiseIndex() : resetIndex()
   }
 
 
   function raiseIndex() {
 
     setProgressIndex(progressIndex + 1)
-    console.log("progressIndex: " + progressIndex)
-    setQuestionIndex(arr[progressIndex - 1]);
+    setQuestionIndex(arr[progressIndex]);
 
     setQuestionSelected(false);
     setClassName("");
 
     if (Changer(progressIndex) === 0)
       winner()
+
+    setGeneratorSelected(false)
   }
 
 
@@ -97,14 +101,11 @@ export function Quiz() {
     setQuestionSelected(false);
     setClassName("");
     setEnd(false)
-    setWelcomeScreen(true)
-
-    generator()
-
-    setQuestionIndex(0);
+    setGeneratorSelected(true)
+    setQuestionIndex(arr[0]);
     Changer(0);
     setProgressIndex(1)
-
+    setWelcomeScreen(true)
   }
 
 
@@ -178,20 +179,26 @@ export function Quiz() {
     <div>
 
 
-      <Welcome handleGameStart={() => setWelcomeScreen(false)} />
+      <Welcome
+        handleGameStart={() => setWelcomeScreen(false)}
+
+      />
 
     </div>
   ) : (
 
       <div className="row">
 
-        <div className="prva">
 
+
+        <div className="prva">
+          {isGeneratorSelected ? newArray() : null}
           {isQuestionSelected ? PopupYesno() : null}
           {isEnd ? PopupWinner() : null}
           <QuestionPresenter
 
             className={className}
+
             question={currentQuestion}
 
             onAnswerSelected={onAnswerSelected}

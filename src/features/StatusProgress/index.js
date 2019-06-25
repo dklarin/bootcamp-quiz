@@ -31,10 +31,12 @@ export function StatusProgress(props) {
 
 
   return (
-    <div className="Progress">
+    <div>
+
+      <div className="Progress">
 
 
-      {/*NOT USED {levels.reverse().map(level => (
+        {/*NOT USED {levels.reverse().map(level => (
         <div key={level.amount} div className={getClassName(level.amount)}>
           {level.text}
         </div>
@@ -43,21 +45,22 @@ export function StatusProgress(props) {
 
 
 
-      <div className="progress">1.000.000 Kn</div>
-      <div className="progress">500.000 Kn</div>
-      <div className="progress">250.000 Kn</div>
-      <div className="progress">125.000 Kn</div>
-      <div className="progress">64.000 Kn</div>
-      <div className="progress">32.000 Kn</div>
-      <div className="progress">16.000 Kn</div>
-      <div className="progress">8.000 Kn</div>
-      <div className="progress">4.000 Kn</div>
-      <div className="progress">2.000 Kn</div>
-      <div className="progress">1.000 Kn</div>
-      <div className="progress">500 Kn</div>
-      <div className="progress">300 Kn</div>
-      <div className="progress">200 Kn</div>
-      <div className="progress">100 Kn</div>
+        <div className="progress">1.000.000 Kn</div>
+        <div className="progress">500.000 Kn</div>
+        <div className="progress">250.000 Kn</div>
+        <div className="progress">125.000 Kn</div>
+        <div className="progress">64.000 Kn</div>
+        <div className="progress">32.000 Kn</div>
+        <div className="progress">16.000 Kn</div>
+        <div className="progress">8.000 Kn</div>
+        <div className="progress">4.000 Kn</div>
+        <div className="progress">2.000 Kn</div>
+        <div className="progress">1.000 Kn</div>
+        <div className="progress">500 Kn</div>
+        <div className="progress">300 Kn</div>
+        <div className="progress">200 Kn</div>
+        <div className="progress">100 Kn</div>
+      </div>
     </div>
   );
 }
