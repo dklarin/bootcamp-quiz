@@ -6,6 +6,7 @@ import { Changer } from "../../components/Changer";
 import { Welcome } from "../../features/welcome";
 import Popup from 'reactjs-popup'
 import { Random } from "../../components/Random"
+import { Jokers } from "../../features/Jokers";
 
 /***
  * @description
@@ -204,6 +205,10 @@ export function Quiz(props) {
             onAnswerSelected={onAnswerSelected}
             playerAnswer={playerAnswer}
           />
+        </div>
+
+        <div className="treca">
+          <Jokers />
         </div>
 
         <div className="druga">
