@@ -1,14 +1,11 @@
 import React from "react";
 
 export function Jokers(props) {
-
-const nesto = () => {
-    console.log("Joker")
-}
+  const { joker } = props;
 
   return (
     <div className="jokers">
-      <button className="odgovor" onClick={() => nesto()}>
+      <button className="odgovor" onClick={() => joker()}>
         50 - 50
       </button>
     </div>

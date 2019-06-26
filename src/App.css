@@ -1,5 +1,7 @@
 .container {
   text-align: center;
+  position: relative;
+  top: calc(82vw / 4);
 }
 
 .box {
@@ -7,14 +9,14 @@
   vertical-align: middle;
   line-height: 50px;
 
-  width: calc(190vw / 4);
-  height: calc(32vw / 4);
+  width: calc(120vw / 4);
+  height: calc(18vw / 4);
 
   padding: 15px;
   background-color: darkblue;
   color: blanchedalmond;
   margin: auto;
-  font-size: calc(8vw / 4);
+  font-size: calc(6vw / 4);
   border: 5px solid orange;
 }
 
@@ -29,28 +31,32 @@
 
 .Progress {
   text-align: center;
+  position: relative;
+  left: 1px;
+
+  width: calc(46vw / 4);
   border: 5px solid orange;
 }
 
 .progress {
-  width: calc(55vw / 4);
+  width: calc(40vw / 4);
   height: calc(4vw / 4);
   background-color: darkblue;
   color: blanchedalmond;
   margin: auto;
-  padding: 10px;
-  font-size: calc(6vw / 4);
+  padding: calc(3vw / 4);
+  font-size: calc(5vw / 4);
 }
 
 button {
-  width: calc(140vw / 4);
-  height: calc(18vw / 4);
+  width: calc(120vw / 4);
+  height: calc(16vw / 4);
   padding: 5px;
   border-radius: 5px;
   background-color: darkblue;
   color: blanchedalmond;
   margin: 10px;
-  font-size: calc(8vw / 4);
+  font-size: calc(6vw / 4);
   border: 5px solid orange;
 }
 
@@ -63,16 +69,14 @@ button:hover {
   background-color: orange;
 }
 
-.row {
-  display: grid;
-  grid-column: 75% 25%;
-  grid-row: 25% 75%;
+.fifty {
+  color: darkblue;
 }
 
-.row > div {
-  margin: 10px;
-  padding: 20px;
-  font-size: 30px;
+.row {
+  display: grid;
+  grid-column: 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr;
+  grid-row: 1fr 1fr auto;
 }
 
 .prva {
@@ -81,20 +85,34 @@ button:hover {
 }
 
 .druga {
-  grid-row: 2;
-}
-
-.treca {
   grid-column: 2;
   grid-row: 1;
 }
 
+.treca {
+  grid-column: 2;
+  grid-row: 2;
+  -ms-grid-row-span: 3;
+  position: relative;
+  right: 4%;
+}
+
+.cetvrta {
+  grid-column: 3;
+  grid-row: 2;
+  -ms-grid-row-span: 3;
+  position: relative;
+  right: 3%;
+}
+
 .jokers {
   margin: 40px;
-  top: 50px;
-  font-size: calc(9vw / 4);
-  left: 300px;
-  width: calc(38vw / 4);
+  top: 0px;
+  font-size: calc(6vw / 4);
+  position: relative;
+  right: 32px;
+  text-align: center;
+  width: calc(28vw / 4);
 }
 
 .Logo {
